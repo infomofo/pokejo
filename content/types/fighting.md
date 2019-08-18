@@ -1,4 +1,5 @@
 ---
+color: '#C03028'
 strong:
   - normal
   - rock

@@ -1,8 +1,11 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PokemonType from "../components/pokemon-type"
+import { graphql } from 'gatsby'
 
-
+import ('../global.scss')
+ 
 class IndexPage extends React.Component {
   render() {
     const { data } = this.props
@@ -11,13 +14,12 @@ class IndexPage extends React.Component {
     return (
       <Layout location={this.props.location}>
         <SEO
-          title="Food I Made"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+          title="Pokemon Journal"
+          keywords={[`game`, `pokemon`, `javascript`, `react`]}
         />
         {types.map(({ node }) => {
-          const title = node.fields.truncated
           return (
-            <div>{title}</div>
+            <PokemonType pokemonType={node}/>
           )
         })}
       </Layout>
@@ -51,6 +53,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             strong
+            color
           }
         }
       }

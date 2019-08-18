@@ -20,6 +20,8 @@ module.exports = {
         name: `pokemon`,
       },
     },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
