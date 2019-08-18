@@ -1,0 +1,6 @@
+---
+strong:
+  - water
+  - ground
+  - rock
+---

@@ -1,0 +1,6 @@
+---
+strong:
+  - fire
+  - ground
+  - rock
+---

@@ -1,0 +1,6 @@
+---
+strong:
+  - fighting
+  - bug
+  - grass
+---

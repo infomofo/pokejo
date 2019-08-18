@@ -1,0 +1,6 @@
+---
+strong:
+  - fighting
+  - dragon
+  - dark
+---

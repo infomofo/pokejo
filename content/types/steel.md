@@ -1,0 +1,6 @@
+---
+strong:
+  - ice
+  - rock
+  - fairy
+---

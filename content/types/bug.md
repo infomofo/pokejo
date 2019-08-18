@@ -1,0 +1,6 @@
+---
+strong:
+  - grass
+  - psychic
+  - dark
+---
