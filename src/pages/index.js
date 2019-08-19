@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import PokemonType from "../components/pokemon-type"
 import { graphql } from 'gatsby'
 import styled from "styled-components"
-import update from 'react-addons-update'
 
 import ('../global.scss')
  
@@ -16,6 +15,9 @@ const StyledTable = styled.table`
     text-align: center;
   }
 `
+const PokemonSelector = styled.select`
+  width: 100px;
+`
 
 class IndexPage extends React.Component {
 
@@ -24,14 +26,17 @@ class IndexPage extends React.Component {
   }
 
   changePokemon(index, event) {
+    let party = [...this.state.party]
+    party[index] = event.target.value
     this.setState({
-      party: update(this.state.party, event.target.value),
+      party,
     });
   }
 
   render() {
     const { data } = this.props
-    const types = data.allMarkdownRemark.edges.sort((a, b) => a > b)
+    const types = data.types.edges.sort((a, b) => a > b)
+    const pokemonList = data.pokemon.edges.sort((a, b) => a > b)
 
     return (
       <Layout location={this.props.location}>
@@ -47,14 +52,17 @@ class IndexPage extends React.Component {
                 return (
                   <th>
                     <label>
-                      <select
+                      <PokemonSelector
                         value={this.state.party[index]}
                         onChange={e => this.changePokemon(index, e)}
                       >
-                        <option value="grapefruit">Grapefruit</option>
-                        <option value="lime">Lime</option>
-                        <option value="mango">Mango</option>
-                      </select>
+                        <option default value="">Select</option>
+                        {pokemonList.map(({ node }) => {
+                          return (
+                            <option value="node.fields.truncated">{node.fields.truncated}</option>
+                          )
+                        })}
+                      </PokemonSelector>
                     </label>
                   </th>
                 )
@@ -87,7 +95,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    types: allMarkdownRemark(
       sort: { fields: [fields___slug] }
       filter: { 
         fields: { 
@@ -105,6 +113,27 @@ export const pageQuery = graphql`
           frontmatter {
             strong
             color
+          }
+        }
+      }
+    }
+    pokemon: allMarkdownRemark(
+      sort: { fields: [fields___slug] }
+      filter: { 
+        fields: { 
+          path: { eq: "pokemon"}
+        } 
+      }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            path
+            truncated
+          }
+          frontmatter {
+            type
           }
         }
       }
