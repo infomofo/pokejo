@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PokemonDetail from "../components/pokemon-detail"
 import PokemonType from "../components/pokemon-type"
 import { graphql } from 'gatsby'
 import styled from "styled-components"
@@ -13,10 +14,21 @@ const StyledTable = styled.table`
   th {
     max-width: 100px;
     text-align: center;
+    vertical-align: top;
   }
 `
 const PokemonSelector = styled.select`
   width: 100px;
+  text-transform: capitalize;
+  font-size: 14px;
+  option {
+    text-transform: capitalize;
+  }
+`
+
+const PokemonSelection = styled.label`
+display: flex;
+flex-direction: column;
 `
 
 class IndexPage extends React.Component {
@@ -51,19 +63,22 @@ class IndexPage extends React.Component {
               {[...Array(6).keys()].map((index) => {
                 return (
                   <th>
-                    <label>
+                    <PokemonSelection>
                       <PokemonSelector
                         value={this.state.party[index]}
                         onChange={e => this.changePokemon(index, e)}
                       >
-                        <option default value="">Select</option>
+                        <option default value="">select</option>
                         {pokemonList.map(({ node }) => {
                           return (
-                            <option value="node.fields.truncated">{node.fields.truncated}</option>
+                            <option value={node.fields.truncated}>{node.fields.truncated}</option>
                           )
                         })}
                       </PokemonSelector>
-                    </label>
+                      {this.state.party[index] &&
+                        <PokemonDetail name={this.state.party[index]}/>
+                      }
+                    </PokemonSelection>
                   </th>
                 )
               })}
