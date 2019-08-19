@@ -3,17 +3,14 @@
  */
 import React from "react"
 import { Link } from "gatsby"
-// import styled from "styled-components"
 
-
-// const StyledType = styled.Link`
-
-// `
 function PokemonType({ pokemonType }) {
     
     const backgroundColor = pokemonType.frontmatter.color || `gray`
 
     const fullStyle = {
+        display: `inline-block`,
+        width: `100px`,
         margin: `5px`,
         padding: `3px`,
         fontFamily: `Chicago`,
@@ -29,23 +26,5 @@ function PokemonType({ pokemonType }) {
             {pokemonType.fields.truncated}
         </Link>
     )}
-
-// const typeQuery = graphql`
-// query TypeQueryByTruncated($slug: String!) {
-//     markdownRemark(
-//         fields: {
-//           truncated: {eq: $slug}
-//           path: {eq: "types"}
-//         }) {
-//         id
-//         frontmatter {
-//           title
-//         }
-//         fields {
-//           slug
-//           truncated
-//         }
-//       }
-// `
 
 export default PokemonType
