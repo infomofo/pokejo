@@ -12,7 +12,7 @@ const StyledTable = styled.table`
   max-width: 700px;
   margin: auto;
   th {
-    max-width: 100px;
+    max-width: 120px;
     text-align: center;
     vertical-align: top;
   }
@@ -29,6 +29,8 @@ const PokemonSelector = styled.select`
 const PokemonSelection = styled.label`
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 `
 
 class IndexPage extends React.Component {
