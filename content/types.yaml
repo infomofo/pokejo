@@ -1,0 +1,104 @@
+- id: grass
+  color: '#79C656'
+  strong:
+    - water
+    - ground
+    - rock
+- id: ice
+  color: '#97D7D7'
+  strong:
+    - grass
+    - ground
+    - flying
+    - dragon
+- id: dark
+  color: '#73574C'
+  strong:
+    - psychic
+    - ghost
+- id: steel
+  color: '#B8B4D0'
+  strong:
+    - ice
+    - rock
+    - fairy
+- id: psychic
+  color: '#AC5F70'
+  strong:
+    - fighting
+    - poison
+- id: rock
+  color: '#BA9E3A'
+  strong:
+    - flying
+    - bug
+    - fire
+    - ice
+- id: ground
+  color: '#D7C07C'
+  strong:
+    - poison
+    - rock
+    - steel
+    - fire
+    - electric
+- id: ghost
+  color: '#6A5193'
+  strong:
+    - psychic
+    - ghost
+- id: water
+  color: '#668FEE'
+  strong:
+    - fire
+    - ground
+    - rock
+- id: fairy
+  color: '#DEA0E0'
+  strong:
+    - fighting
+    - dragon
+    - dark
+- id: fighting
+  color: '#C03028'
+  strong:
+    - normal
+    - rock
+    - steel
+    - ice
+    - dark
+- id: bug
+  color: '#A7B71B'
+  strong:
+    - grass
+    - psychic
+    - dark
+- id: poison
+  color: '#7B417A'
+  strong:
+    - grass
+    - fairy
+- id: flying
+  color: '#A28DC5'
+  strong:
+    - fighting
+    - bug
+    - grass
+- id: dragon
+  color: '#7D56D0'
+  strong:
+    - dragon
+- id: normal
+  color: '#ABA977'
+- id: electric
+  color: '#E5C956'
+  strong:
+    - water
+    - flying
+- id: fire
+  color: '#F27C2D'
+  strong:
+    - grass
+    - ice
+    - bug
+    - steel

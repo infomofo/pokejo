@@ -1,8 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import TypeByName from "../components/type-by-name"
+import PokemonType from "../components/pokemon-type"
 
-import Img from "gatsby-image"
 import PropTypes from "prop-types"
 
 function PokemonDetail({ name }) {
@@ -23,10 +22,10 @@ function PokemonDetail({ name }) {
         return pokemon ? (
           <div>
             {pokemon.node.frontmatter.image && (
-              <img src={pokemon.node.frontmatter.image.publicURL}></img>
+              <img src={pokemon.node.frontmatter.image.publicURL} alt={pokemon.node.fields.truncated}></img>
             )}
             {types.map(type => {
-              return <TypeByName name={type} />
+              return <PokemonType pokemonType={type} />
             })}
           </div>
         ) : (
@@ -53,7 +52,11 @@ const pokemonDetailQuery = graphql`
             truncated
           }
           frontmatter {
-            type
+            type {
+              id
+              strong
+              color
+            }
             image {
               publicURL
             }

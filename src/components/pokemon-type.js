@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 
 function PokemonType({ pokemonType }) {
     
-    const backgroundColor = pokemonType.frontmatter.color || `gray`
+    const backgroundColor = pokemonType.color || `gray`
 
     const fullStyle = {
         display: `inline-block`,
@@ -23,7 +23,7 @@ function PokemonType({ pokemonType }) {
       }
     return (
         <Link style={fullStyle}>
-            {pokemonType.fields.truncated}
+            {pokemonType.id}
         </Link>
     )}
 

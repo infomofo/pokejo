@@ -6,10 +6,11 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/types`,
+        path: `${__dirname}/content/types.yaml`,
         name: `types`,
       },
     },
@@ -57,4 +58,7 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
+  mapping: {
+    "MarkdownRemark.frontmatter.type": `TypesYaml`,
+  },
 }

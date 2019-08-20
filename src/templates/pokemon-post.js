@@ -69,7 +69,11 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        type
+        type {
+          id
+          strong
+          color
+        }
       }
     }
   }

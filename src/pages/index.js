@@ -112,25 +112,12 @@ export const pageQuery = graphql`
         title
       }
     }
-    types: allMarkdownRemark(
-      sort: { fields: [fields___slug] }
-      filter: { 
-        fields: { 
-          path: { eq: "types"}
-        } 
-      }
-    ) {
+    types: allTypesYaml {
       edges {
         node {
-          fields {
-            slug
-            path
-            truncated
-          }
-          frontmatter {
-            strong
-            color
-          }
+          id
+          color
+          strong
         }
       }
     }
@@ -150,7 +137,11 @@ export const pageQuery = graphql`
             truncated
           }
           frontmatter {
-            type
+            type {
+              id
+              strong
+              color
+            }
           }
         }
       }
