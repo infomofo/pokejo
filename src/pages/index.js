@@ -93,6 +93,25 @@ class IndexPage extends React.Component {
                   <th>
                     <PokemonType pokemonType={node} />
                   </th>
+                  {[...Array(6).keys()].map((index) => {
+                    const pokemon = pokemonList.find(({ node }) => {
+                      return (
+                        node &&
+                        node.fields &&
+                        node.fields.truncated &&
+                        node.fields.truncated === this.state.party[index]
+                      )
+                    })
+                    pokemon && console.log(node.id, pokemon.node.frontmatter.type.some((type) => type.strong && type.strong.includes(node.id)))
+                  return (
+                    <td>
+                      {pokemon && 
+                        pokemon.node.frontmatter.type && 
+                        pokemon.node.frontmatter.type.some((type) => type.strong && type.strong.includes(node.id)) && 
+                        <strong>STRONG</strong>
+                      }
+                    </td>
+                  )})}
                 </tr>
               )
             })}
