@@ -10,16 +10,18 @@ function PokemonType({ pokemonType }) {
 
     const fullStyle = {
         display: `inline-block`,
-        width: `100px`,
-        margin: `5px`,
-        padding: `3px`,
+        width: `90px`,
+        height: `35px`,
+        fontSize: `15px`,
+        margin: `1px`,
+        padding: `5px`,
         fontFamily: `Chicago`,
         border: `2px solid gray`,
-        borderRadius: `5px`,
+        borderRadius: `4px`,
         backgroundColor: backgroundColor,
         textDecoration: `none`,
         color: `white`,
-        textShadow: `2px 2px #ff0000`
+        textShadow: `1px 1px #ff0000`
       }
     return (
         <Link style={fullStyle}>

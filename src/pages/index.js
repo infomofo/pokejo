@@ -11,7 +11,8 @@ import ('../global.scss')
 const StyledTable = styled.table`
   max-width: 700px;
   margin: auto;
-  th {
+  td,th {
+    padding: 5px;
     max-width: 120px;
     text-align: center;
     vertical-align: top;
